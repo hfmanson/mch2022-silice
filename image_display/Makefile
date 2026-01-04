@@ -7,7 +7,8 @@ BUILD_mch2022/build.bin: main.si prepare
 	silice-make.py -s main.si -b mch2022 -p basic,lcd,espspi -o BUILD_mch2022
 
 prepare:
-	pushd . ; cd ../common/ext ; ./download_all.sh ; popd
+#	pushd . ; cd ../common/ext ; ./download_all.sh ; popd
+	echo prepare
 
 clean:
 	rm -rf BUILD_*

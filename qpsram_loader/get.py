@@ -34,14 +34,18 @@ ser.write(packet)
 # read data
 i = 0
 ba = bytearray()
+address = 0
 while True:
   b = ser.read(1)
   if len(b) == 0:
     break
+  if i == 0:
+    print("{:08X}".format(address), end=":  ")
   print("{:02X}".format(int.from_bytes(b,byteorder='little')),end=" ")
   ba.append(int.from_bytes(b,byteorder='little'))
   i = i + 1
   if i == 16:
     i = 0
+    address += 16
     print(" ",bytes(ba))
     ba = bytearray()

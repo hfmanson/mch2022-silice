@@ -71,7 +71,7 @@ $$end
 
   algorithm {
 
-    uint16 n(0);
+    uint11 n(0);
 
     while (1) {
       // wait for read address
@@ -80,7 +80,7 @@ $$end
       n = 0;
       ram.wenable  = 0;
       ram.addr     = addr;
-      while (~n[8,1]) {
+      while (~n[10,1]) {
         // read from psram
         ram.in_ready = 1;
         while (ram.busy) {}

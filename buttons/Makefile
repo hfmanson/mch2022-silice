@@ -6,7 +6,7 @@ program: BUILD_mch2022/build.bin prepare
 BUILD_mch2022/build.bin: main.si prepare
 	silice-make.py -s main.si -b mch2022 -p basic,lcd,espspi -o BUILD_mch2022
 
-prepare:
+prepare: $(eval SHELL:=/bin/bash)
 	pushd . ; cd ../common/ext ; ./download_all.sh ; popd
 
 clean:
